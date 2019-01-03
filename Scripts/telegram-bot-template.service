@@ -1,0 +1,16 @@
+[Unit] 
+Description=Telegram-bot-template Service
+
+[Service] 
+WorkingDirectory=/var/deploy/telegram-bot-template/
+ExecStart=/usr/bin/dotnet /var/deploy/telegram-bot-template/TelegramBotTemplate.dll
+Restart=always 
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=telegram-bot-template
+User=www-data 
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install] 
+WantedBy=multi-user.target
